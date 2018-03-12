@@ -1,5 +1,6 @@
+require 'pry'
 class Application
-  @@items = Item.all
+  #@@items = Item.all
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
@@ -8,16 +9,22 @@ class Application
 
 
         item_title = req.path.split("/items/").last
-        if @@items.include?(item_title)
+       #binding.pry
+       newitems= @@items.map do |item|
+         item.name
+       end
+        if newitems.include?(item_title)
         item = @@items.find{|i| i.name == item_title}
-      end
+         resp.write item.price
 
-        resp.write item.price
     else
       resp.status = 400
       resp.write "Item not found"
     end
+  else
     resp.status = 404
+    resp.write "Route not found"
+  end
 
     resp.finish
     end
