@@ -13,7 +13,7 @@ class Application
        newitems= @@items.map do |item|
          item.name
        end
-        if @@items.include?(item_title)
+        if newitems.include?(item_title)
         item = @@items.find{|i| i.name == item_title}
          resp.write item.price
 
