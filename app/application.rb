@@ -10,7 +10,7 @@ class Application
 
         item_title = req.path.split("/items/").last
        binding.pry
-       newitems= @@items.each do |item|
+       newitems= @@items.map do |item|
          item.name
        end
         if @@items.include?(item_title)
