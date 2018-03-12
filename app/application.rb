@@ -9,7 +9,7 @@ class Application
 
 
         item_title = req.path.split("/items/").last
-       binding.pry
+       #binding.pry
        newitems= @@items.map do |item|
          item.name
        end
