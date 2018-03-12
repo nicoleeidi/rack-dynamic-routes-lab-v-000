@@ -9,7 +9,7 @@ class Application
 
 
         item_title = req.path.split("/items/").last
-      # binding.pry
+       binding.pry
         if @@items.include?(item_title)
         item = @@items.find{|i| i.name == item_title}
          resp.write item.price
