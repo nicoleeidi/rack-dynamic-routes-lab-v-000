@@ -12,9 +12,7 @@ class Application
        binding.pry
         if @@items.include?(item_title)
         item = @@items.find{|i| i.name == item_title}
-      end
-
-        resp.write item.price
+         resp.write item.price
     else
       resp.status = 400
       resp.write "Item not found"
